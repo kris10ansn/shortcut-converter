@@ -1,0 +1,260 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body, html {
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	background-color: rgb(33, 33, 33);
+}
+
+*[hidden] {
+	display: none;
+}
+
+div.top-bar {
+	height: 30px;
+	width: 100vw;
+	background-color: rgb(28, 28, 28);
+	display: flex;
+	cursor: grab;
+
+	-webkit-user-select: none;
+	-webkit-app-region: drag;
+}
+
+a { cursor: pointer; }
+
+div.top-bar a {
+	-webkit-app-region: no-drag;
+	text-decoration: none;
+	font-size: 30px;
+	color: white;
+	position: absolute;
+}
+
+div.top-bar a.back {
+	font-size: 18px;
+	left: 6px;
+	top: 2px;
+}
+
+div.top-bar a.exit {
+	font-size: 25px;
+	left: calc(100vw - 25px);
+	top: -2px;
+	color: rgb(255, 75, 75);
+}
+
+div.top-bar a.minimize {
+	left: calc(100vw - 55px);
+	top: -5px;
+}
+
+
+div.main {
+	height: 100vh;
+	position: absolute;
+	background-color: rgb(33, 33, 33);
+}
+
+div.header {
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+}
+
+div.header h1 {
+	color: white;
+	text-align: center;
+	font-size: 70px;
+
+	width: 70vw;
+	margin-left: 50%;
+	transform: translateX(-35vw);
+	margin-top: 7vh;
+	margin-bottom: 2vh;
+
+	-webkit-user-select: none;
+}
+
+div.buttons {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: space-evenly;
+	height: 270px;
+}
+
+button:focus { outline: 0 }
+
+.buttons button {
+	width: 70vw;
+	transform: translateX(-35vw);
+	margin-left: 50vw;
+
+	height: 60px;
+	border-radius: 10px;
+	border: none;
+	
+	text-align: center;
+	color: white;
+	font-size: 26px;
+	
+	cursor: pointer;
+	-webkit-user-select: none;
+	
+}
+
+.buttons button p.button-undertext {
+	font-size: 15px;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+	
+	position: relative;
+    width: 70%;
+    left: 50%;
+	transform: translateX(-50%);
+}
+
+button outline {
+	--width: 70vw;
+	--height: 60px;
+
+	--padding: 20px;
+
+	position: absolute;
+	width: calc(var(--width) + var(--padding));
+	height: calc(var(--height) + var(--padding));
+    left: calc(50vw - var(--padding)/2);
+	top: 7px;
+	transform: translate(-50vw, -15px);
+	
+	border: solid red;
+    border-radius: 14px;
+	
+	padding: calc(var(--height)/2);
+}
+
+/* outline:not([hidden]) */ outline.outline-error-animation{ 
+	animation: shake 0.4s forwards;
+}
+
+@keyframes shake {
+	10%, 90% {
+		margin-left: -2px;
+	}
+	
+	20%, 80% {
+		margin-left: 3px;
+	}
+  
+	30%, 50%, 70% {
+		margin-left: -3px;
+	}
+  
+	40%, 60% {
+		margin-left: 3px;
+	}
+}
+
+button.button-green {
+	background-color: rgb(60, 200, 60);
+	box-shadow: 0px 4px 0 0.2px green
+}
+
+button.button-green:active {
+	box-shadow: 0px 1px 0 1px green;
+	transform: translate(-35vw, 3px)
+}
+
+button.button-yellow {
+	background-color: rgb(255, 209, 73);
+	box-shadow: 0px 4px 0 0.2px orange;
+}
+
+button.button-yellow:active {
+	box-shadow: 0px 1px 0 1px orange;
+	transform: translate(-35vw, 3px)
+}
+
+button.button-red {
+	background-color: rgb(255, 75, 75);
+	box-shadow: 0px 4px 0 0.2px red;
+}
+
+button.button-red:active {
+	box-shadow: 0px 1px 0 1px red;
+	transform: translate(-35vw, 3px)
+}
+
+
+/* Barba */
+
+@keyframes slide-in {
+	from {
+		transform: translateX(100%);
+		visibility: visible;
+	}
+	to {
+		transform: translateX(0%)
+	}
+}
+
+.slide-in {
+	animation: slide-in 0.5s ease forwards;
+}
+
+@keyframes slide-out {
+	from {
+		transform: translateX(0%);
+		visibility: visible;
+	}
+
+	to {
+		transform: translateX(-100%);
+	}
+}
+
+.slide-out {
+	animation: slide-out 0.5s ease forwards;
+}
+
+/* Couldn't use reverse on animation because of weird bug */
+
+@keyframes slide-in-reverse {
+	from {
+		transform: translateX(-100%);
+		visibility: visible;
+	}
+	to {
+		transform: translateX(0%)
+	}
+}
+
+.slide-in-reversed {
+	animation: slide-in-reverse 0.5s ease forwards;
+}
+
+@keyframes slide-out-reverse {
+	from {
+		transform: translateX(0%);
+		visibility: visible;
+	}
+
+	to {
+		transform: translateX(100%);
+	}
+}
+
+.slide-out-reversed {
+	animation: slide-out-reverse 0.5s ease forwards;
+}
+
+/* */

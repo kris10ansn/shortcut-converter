@@ -1,0 +1,15 @@
+{
+  "name": "shortcut_converter",
+  "version": "1.0.0",
+  "description": "An app that lets you convert url files into standard windows .lnk shortcuts, making them pinnable to the taskbar!",
+  "main": "js/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Kristian",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^4.0.7",
+    "windows-shortcuts": "^0.1.6"
+  }
+}
