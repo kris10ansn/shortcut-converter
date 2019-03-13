@@ -3,6 +3,9 @@ const { remote, ipcRenderer } = electron
 const Path = require("path")
 const fs = require("fs")
 
+
+// Add option to go back to the default icon
+
 const desktopPath = Path.join(require('os').homedir(), 'Desktop')
 const urlFile = {
 	name: undefined,
@@ -26,9 +29,9 @@ function reset() {
 	setUrlPathText("")
 }
 
-function loadOptions() {
+async function loadOptions() {
 	try {
-	const data = fs.readFileSync("./js/options.json")
+	const data = await fs.readFileSync("./js/options.json")
 
 	const json = JSON.parse(data)
 
@@ -37,8 +40,8 @@ function loadOptions() {
 	} catch(error) {
 		fs.writeFileSync("./js/options.json", JSON.stringify(options))
 	}
+	setOutputDirText()
 }
-
 function setOutputDirectory(dir) {
 	options.outputDir = dir.path
 
@@ -70,10 +73,9 @@ function setUrlFile(file) {
 		urlFile.name = file.name.slice(0, -4)
 		urlFile.contents = reader.result
 		urlFile.path = file.path
-
-		setUrlPathText(file.path)
 	}
 	reader.readAsText(file)
+	setUrlPathText(file.path)
 }
 
 function setUrlPathText(text) {
@@ -183,7 +185,6 @@ const reversePageTransition = () => reverseTransition = true
 window.addEventListener('load', () => {
 	loadOptions()
 	addTriggers()
-	setOutputDirText()
 
 	Barba.Pjax.start()
 

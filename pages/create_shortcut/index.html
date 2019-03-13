@@ -16,7 +16,7 @@
 	<!-- <div id="barba-wrapper"> -->
 	<div class="main barba-container">
 		<div class="top-bar">
-			<a onclick="reversePageTransition();reset();" href="../main/index.html" class="back">
+			<a onclick="reset();reversePageTransition();" href="../main/index.html" class="back">
 				🡨
 			</a>
 			<a onclick="minimizeWindow()" class="minimize">
@@ -39,13 +39,12 @@
 					type="file"
 					id="chooseUrlFile"
 					accept=".url"
-					onchange="setUrlFile(this.files[0])"
+					onchange="setUrlFile(this.files[0]);this.value=null;console.log('oke')"
 					hidden
 				/>
 
 				<outline id="chooseUrlFileOutline" hidden></outline>
 			</button>
-
 			<button class="button-yellow" trigger="#chooseCustomIcon">
 				Custom icon (optional)
 				<p class="button-undertext" id="iconPath"></p>
@@ -57,7 +56,6 @@
 					hidden
 				/>
 			</button>
-
 			<button class="button-red" onclick="createShortcut()">
 				Create shortcut
 			</button>

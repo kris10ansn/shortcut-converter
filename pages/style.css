@@ -142,9 +142,29 @@ button outline {
 	padding: calc(var(--height)/2);
 }
 
-/* outline:not([hidden]) */ outline.outline-error-animation{ 
+outline.outline-error-animation{ 
 	animation: shake 0.4s forwards;
 }
+
+svg.x-svg {
+	position: absolute;
+	height: 22px;
+	fill: white;
+}
+
+svg.x-svg:hover {
+	animation: spin .8s forwards;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotateZ(0deg)
+	}
+	100% {
+		transform: rotateZ(360deg)
+	}
+}
+
 
 @keyframes shake {
 	10%, 90% {

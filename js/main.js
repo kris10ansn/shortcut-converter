@@ -36,6 +36,8 @@ function createWindow() {
 		protocol: 'file:',
 		slashes: true
 	}));
+	
+	// Activate devtools on start
 	// mainWindow.webContents.openDevTools();
 
 	// Devtools shortcut (ctrl+shift+i)
