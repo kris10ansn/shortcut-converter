@@ -4,8 +4,7 @@
   "description": "An app that lets you convert url files into standard windows .lnk shortcuts, making them pinnable to the taskbar!",
   "main": "js/main.js",
   "scripts": {
-    "start": "electron .",
-    "pack": "build --dir"
+    "start": "electron ."
   },
   "author": "Kristian",
   "license": "ISC",
@@ -17,6 +16,14 @@
   },
   "build": {
     "appId": "dev.kris10ansn.shortcut-converter",
-    "productName": "Shortcut converter"
+    "productName": "Shortcut converter",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["ia32"]
+        }
+      ]
+    }
   }
 }

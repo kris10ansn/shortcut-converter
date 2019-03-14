@@ -44,15 +44,16 @@ div.top-bar a.back {
 }
 
 div.top-bar a.exit {
-	font-size: 25px;
-	left: calc(100vw - 25px);
-	top: -2px;
+	font-size: 40px;
+	left: calc(100vw - 28px);
+	top: -10px;
 	color: rgb(255, 75, 75);
 }
 
 div.top-bar a.minimize {
 	left: calc(100vw - 55px);
-	top: -5px;
+    top: -9px;
+    font-size: 21px;
 }
 
 
@@ -146,23 +147,10 @@ outline.outline-error-animation{
 	animation: shake 0.4s forwards;
 }
 
-svg.x-svg {
+svg {
 	position: absolute;
 	height: 22px;
 	fill: white;
-}
-
-svg.x-svg:hover {
-	animation: spin .8s forwards;
-}
-
-@keyframes spin {
-	0% {
-		transform: rotateZ(0deg)
-	}
-	100% {
-		transform: rotateZ(360deg)
-	}
 }
 
 
