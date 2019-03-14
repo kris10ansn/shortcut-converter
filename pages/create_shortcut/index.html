@@ -14,7 +14,7 @@
 
 <body id="barba-wrapper">
 	<!-- <div id="barba-wrapper"> -->
-	<div class="main barba-container">
+	<div class="main barba-container" name="create_shortcut">
 		<div class="top-bar">
 			<a onclick="reset();reversePageTransition();" href="../main/index.html" class="back">
 				🡨
@@ -39,7 +39,7 @@
 					type="file"
 					id="chooseUrlFile"
 					accept=".url"
-					onchange="setUrlFile(this.files[0]);this.value=null;console.log('oke')"
+					onchange="setUrlFile(this.files[0]);this.value=null;"
 					hidden
 				/>
 

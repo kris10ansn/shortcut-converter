@@ -2,7 +2,8 @@ const {
 	app,
 	BrowserWindow,
 	ipcMain,
-	// globalShortcut
+	// For devtools shortcut:
+	// globalShortcut,
 } = require('electron')
 const Path = require('path')
 const url = require('url')
@@ -63,28 +64,18 @@ app.on('window-all-closed', () => {
 
 
 ipcMain.on('resize', (event, size) => {
-	const {
-		width,
-		height
-	} = size
+	const { width, height } = size
 
-	mainWindow.setSize(
-		width,
-		height
-	)
+	mainWindow.setSize(width, height)
 })
 
 ipcMain.on('createShortcut', (event, urlFile, customIcon, dir) => {
 	createShortcutFile(urlFile, customIcon, dir)
 })
-
 const highlight = path => require('child_process').exec(`explorer.exe /select, "${path}"`);
 
 async function createShortcutFile(fileProperties, customIcon, dir) {
-	const {
-		url,
-		name
-	} = fileProperties
+	const { url, name } = fileProperties
 	const path = `${dir}\\${name}.lnk`
 	const iconFile = customIcon ? customIcon : fileProperties.iconFile
 

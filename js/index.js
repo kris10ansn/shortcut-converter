@@ -49,8 +49,6 @@ function setOutputDirectory(dir) {
 	json.outputDir = dir.path
 	
 	fs.writeFileSync("./js/options.json", JSON.stringify(json))
-
-	setOutputDirText()
 }
 
 function setOutputDirText() {
@@ -208,18 +206,25 @@ window.addEventListener('load', () => {
 		fadeIn: function () {
 			const className = reverseTransition ? 'slide-in-reversed' : 'slide-in'
 			reverseTransition = false
-
+			
+			const name = this.newContainer.getAttribute("name")
+			switch (name) {
+				case "main":
+					setOutputDirText();
+					break;
+			}
+			
 			this.newContainer.classList.add(className)
 
 			this.newContainer.addEventListener('animationend', () => {
 				this.newContainer.classList.remove(className)
 				this.done()
 			})
+
 		}
 	});
 
 	Barba.Pjax.getTransition = function () {
-		// More logic ?
 		return transition;
 	};
 })
