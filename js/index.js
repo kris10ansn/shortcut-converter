@@ -4,7 +4,7 @@ const Path = require("path")
 const fs = require("fs")
 
 
-// Add option to go back to the default icon
+// Add option to go back to the default icon?
 
 const desktopPath = Path.join(require('os').homedir(), 'Desktop')
 const urlFile = {
@@ -12,7 +12,7 @@ const urlFile = {
 	contents: undefined,
 	path: undefined
 }
-const options = {
+const preferences = {
 	outputDir: desktopPath
 }
 
@@ -30,31 +30,35 @@ function reset() {
 }
 
 async function loadOptions() {
+	const userDataPath = (electron.app || electron.remote.app).getPath("userData")
+	const jsonPath = `${userDataPath}\\preferences.json`
+
 	try {
-	const data = await fs.readFileSync("./js/options.json")
+		const json = JSON.parse(fs.readFileSync(jsonPath))
 
-	const json = JSON.parse(data)
-
-	if(json.outputDir)
-		options.outputDir = json.outputDir
+		if(json.outputDir)
+			preferences.outputDir = json.outputDir
 	} catch(error) {
-		fs.writeFileSync("./js/options.json", JSON.stringify(options))
+		fs.writeFileSync(jsonPath, JSON.stringify(preferences))
 	}
 	setOutputDirText()
 }
 function setOutputDirectory(dir) {
-	options.outputDir = dir.path
+	preferences.outputDir = dir.path
 
-	const json = JSON.parse(fs.readFileSync("./js/options.json"));
-	json.outputDir = dir.path
+	const userDataPath = (electron.app || electron.remote.app).getPath("userData")
+	const jsonPath = `${userDataPath}\\preferences.json`
+	const json = JSON.parse(fs.readFileSync(jsonPath));
+	json.outputDir = dir.path // Appends on to other data ( if added later )
 	
-	fs.writeFileSync("./js/options.json", JSON.stringify(json))
+	fs.writeFileSync(jsonPath, JSON.stringify(json))
+	setOutputDirText()
 }
 
 function setOutputDirText() {
 	const outputPath = document.getElementById("output-path")
-	outputPath.innerText = options.outputDir
-	outputPath.setAttribute("title", options.outputDir)
+	outputPath.innerText = preferences.outputDir
+	outputPath.setAttribute("title", preferences.outputDir)
 }
 
 // File converting stuff
@@ -95,7 +99,7 @@ function setIconPathText(text) {
 
 function createShortcut() {
 	if (urlFile.contents) {
-		ipcRenderer.send('createShortcut', getUrlFileProperties(urlFile), customIcon, options.outputDir)
+		ipcRenderer.send('createShortcut', getUrlFileProperties(urlFile), customIcon, preferences.outputDir)
 		reset()
 	} else {
 		const outline = document.getElementById('chooseUrlFileOutline')

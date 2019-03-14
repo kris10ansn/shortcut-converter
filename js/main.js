@@ -6,6 +6,7 @@ const {
 	// globalShortcut,
 } = require('electron')
 const Path = require('path')
+const fs = require('fs')
 const url = require('url')
 const Shortcut = require("windows-shortcuts")
 
