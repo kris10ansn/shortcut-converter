@@ -1,4 +1,4 @@
-const fileChooser = async (options): Promise<String[]> =>
+const fileChooser = async (options): Promise<string[]> =>
     new Promise(async (resolve, reject) => {
         const { remote } = window.require("electron");
 
