@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    .button {
+        margin: 11px 0;
+        font-size: 26px;
+
+        width: 100%;
+        height: 60px;
+        border-radius: 10px;
+        border: none;
+
+        $transition-speed: 0.09s;
+        transition: transform $transition-speed, box-shadow $transition-speed;
+
+        text-align: center;
+        color: white;
+
+        cursor: pointer;
+        background-color: var(--primary);
+        box-shadow: 0px 4px 0 0.2px var(--accent);
+
+        &.green {
+            --primary: rgb(60, 200, 60);
+            --accent: green;
+        }
+
+        &.yellow {
+            --primary: rgb(255, 209, 73);
+            --accent: orange;
+        }
+
+        &.red {
+            --primary: rgb(255, 75, 75);
+            --accent: red;
+        }
+
+        &:active {
+            box-shadow: 0px 1px 0 1px var(--accent);
+            transform: translateY(3px);
+        }
+
+        p.undertext {
+            font-size: 15px;
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+.page {
+    height: calc(100vh - var(--titlebar-height));
+
+    padding: 0 15vw;
+    width: 100vw;
+    overflow: hidden;
+
+    .header {
+        color: white;
+        text-align: center;
+        display: flex;
+        align-items: center;
+
+        height: 42%;
+
+        h1 {
+            font-size: 70px;
+        }
+    }
+}
