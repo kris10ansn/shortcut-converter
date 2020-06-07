@@ -12,7 +12,7 @@ Start electron with `npm run electron:start`
 
 ## Production
 
-    This application is only supposed to run on windows, so other builds (e.g. linux) are purely for UI developement.
+_This application is only supposed to run on windows, so other builds (e.g. linux) are purely for UI developement._
 
 Create next export with `npm run next:export`
 
