@@ -36,6 +36,8 @@ const createWindow = () => {
             (error) => console.error(error)
         );
 
+        const buildPath = path.join(__dirname, "out", "index.html");
+
         window.loadURL(
             url.format({
                 pathname: buildPath,
