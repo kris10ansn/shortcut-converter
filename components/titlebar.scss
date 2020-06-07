@@ -1,0 +1,74 @@
+.bar {
+    height: var(--titlebar-height);
+    background-color: #1c1c1c;
+
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+
+    .leftButtons,
+    .rightButtons {
+        position: absolute;
+
+        height: var(--titlebar-height);
+        display: flex;
+        align-items: center;
+
+        -webkit-app-region: none;
+        padding: 0 4px;
+
+        .back {
+            font-size: 21px;
+            height: 100%;
+            transform: translateY(-2px);
+
+            cursor: pointer;
+
+            margin: 0 4px;
+        }
+
+        .circle {
+            margin: 0 4px;
+            $size: 13px;
+            height: $size;
+            width: $size;
+            border-radius: $size/2;
+
+            display: block;
+
+            &.red {
+                background: #f25056;
+
+                &:hover::after {
+                    position: relative;
+                    font-size: 18px;
+
+                    content: "×";
+                    color: black;
+                    left: 1.5px;
+                    bottom: 5px;
+                }
+            }
+
+            &.yellow {
+                background: #fcbe07;
+                &:hover::after {
+                    position: relative;
+                    font-size: 22px;
+
+                    content: "-";
+                    color: black;
+                    left: 2px;
+                    bottom: 9.5px;
+                }
+            }
+        }
+    }
+
+    .leftButtons {
+        left: 0;
+    }
+
+    .rightButtons {
+        right: 0;
+    }
+}
