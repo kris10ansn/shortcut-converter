@@ -1,8 +1,0 @@
-node_modules
-js/options.json
-js/.jsbeautifyrc
-build
-dist/win-ia32-unpacked
-dist/*.yml
-dist/*.yaml
-dist/*.blockmap
