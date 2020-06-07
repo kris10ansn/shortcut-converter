@@ -3,8 +3,11 @@ import page from "../styles/page.scss";
 import button from "../styles/button.scss";
 import useClassNames from "../utils/useClassNames";
 import fileChooser from "../utils/fileChooser";
+import { useState } from "react";
 
 const Convert: NextPage = () => {
+    const [iconFile, setIconFile] = useState("");
+
     const handleSelectFile = async () => {
         const [file] = await fileChooser({
             title: "Find .url file to convert",
@@ -20,6 +23,10 @@ const Convert: NextPage = () => {
                 { name: "Icon files", extensions: ["ico", "exe", "dll"] },
             ],
         });
+
+        if (file) {
+            setIconFile(file);
+        }
     };
 
     return (
@@ -40,7 +47,11 @@ const Convert: NextPage = () => {
                     onClick={handleChangeIcon}
                 >
                     Change icon
-                    <p className={button.undertext}>(Optional)</p>
+                    <p className={button.undertext}>
+                        {iconFile && iconFile.length > 0
+                            ? iconFile
+                            : "(Optional)"}
+                    </p>
                 </button>
 
                 <button className={useClassNames(button.button, button.red)}>
