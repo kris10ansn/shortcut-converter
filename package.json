@@ -4,6 +4,9 @@
     "description": "An app built with electron and next js that lets you convert url files into standard windows lnk files, that have way more capabilities.",
     "main": "electron.js",
     "private": true,
+    "author": "kris10ansn",
+    "license": "ISC",
+    "homepage": "https://github.com/kris10ansn/shortcut-converter#readme",
     "scripts": {
         "next:dev": "next dev",
         "next:export": "next build; next export;",
@@ -14,12 +17,9 @@
         "type": "git",
         "url": "git+https://github.com/kris10ansn/shortcut-converter.git"
     },
-    "author": "kris10ansn",
-    "license": "ISC",
     "bugs": {
         "url": "https://github.com/kris10ansn/shortcut-converter/issues"
     },
-    "homepage": "https://github.com/kris10ansn/shortcut-converter#readme",
     "dependencies": {
         "@zeit/next-css": "^1.0.1",
         "@zeit/next-sass": "^1.0.1",
