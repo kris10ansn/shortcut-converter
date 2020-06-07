@@ -20,6 +20,7 @@ const createWindow = () => {
 
     if (isDev) {
         window.loadURL("http://localhost:3000");
+        window.webContents.openDevTools();
     } else {
         protocol.interceptFileProtocol(
             "file",
@@ -46,8 +47,6 @@ const createWindow = () => {
             })
         );
     }
-
-    window.webContents.openDevTools();
 };
 
 app.whenReady().then(() => {
