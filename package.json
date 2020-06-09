@@ -11,7 +11,8 @@
         "next:dev": "next dev",
         "next:export": "next build; next export;",
         "electron:start": "electron .",
-        "electron:build-linux": "electron-builder --linux"
+        "electron:build-linux": "electron-builder --linux",
+        "build:linux": "npm run next:export && electron-builder --linux"
     },
     "repository": {
         "type": "git",
