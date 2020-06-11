@@ -21,7 +21,7 @@ const Home: NextPage = () => {
             properties: ["openDirectory"],
         });
 
-        console.log(directory);
+        setOutDir(directory);
     };
 
     const openWebsite = () => {
