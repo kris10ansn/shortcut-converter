@@ -12,7 +12,7 @@
     "windows-shortcuts": "^0.1.6"
   },
   "devDependencies": {
-    "electron": "^7.2.4"
+    "electron": "^15.5.5"
   },
   "build": {
     "appId": "dev.kris10ansn.shortcut-converter",
